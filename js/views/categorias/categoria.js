@@ -62,7 +62,6 @@ define([
 							}
 						)
 					);
-					debugger;
 					$(".clienteId_"+cliente.id).click(function() {
 						var idCliente = $(this).attr("data-idcliente");
 						window.location.href="#/cliente/"+idCliente;

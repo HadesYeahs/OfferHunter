@@ -20,7 +20,7 @@ define([
 				complete: function(objeto, exito){
 					alert("Me acabo de completar")
 					if(exito=="success"){
-						alert("Y con éxito");
+						alert("Y con ï¿½xito");
 					}
 				},
 				success: function (res) {
@@ -43,8 +43,8 @@ define([
 					}
 				},
 				error: function(objeto, quepaso, otroobj){
-					alert("Estas viendo esto por que fallé");
-					alert("Pasó lo siguiente: "+quepaso);
+					alert("Estas viendo esto por que fallï¿½");
+					alert("Pasï¿½ lo siguiente: "+quepaso);
 				}*/
 			}).then(function(res){
 				var tipos = res.data;
@@ -60,6 +60,10 @@ define([
 							}
 						)
 					);
+					//imagen
+					var url= "./images/"+tipo.img+".png";
+					$(".tipoId_"+tipo.id).find(".circleCat").css("background-image", "url("+url+")"); 
+					//link
 					$(".tipoId_"+tipo.id).click(function() {
 						var idTipo = $(this).attr("data-idCat");
 						window.location.href="#/categoria/"+idTipo;
