@@ -114,24 +114,23 @@ define([
 			if(switchh)
 				$(".switch").css("color","#58DA90");
 			//mapas
-			/*google.maps.event.addDomListener($(".mapa"), "load", function(){
-				var mapOptions = {
-				  center: new google.maps.LatLng(22.216035, -97.857869),
-				  zoom: 10,
-				  mapTypeId: google.maps.MapTypeId.ROADMAP
-				};
-				var map = new google.maps.Map($(".mapa")[0],mapOptions);
-				//marker
-				for(var key in ubicaciones)
-				{
-					ubicacion = ubicaciones[key].split(',');
-					var place = new google.maps.LatLng(ubicacion[0],ubicacion[1]);
-					var marker = new google.maps.Marker({
-						position: place, 
-						map: map 
-					});
-				}
-			});*/
+			
+			var mapOptions = {
+			  center: new google.maps.LatLng(22.216035, -97.857869),
+			  zoom: 10,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map($("#mapa")[0],mapOptions);
+
+			for(var key in ubicaciones) {
+				ubicacion = ubicaciones[key].split(',');
+				var place = new google.maps.LatLng(ubicacion[0],ubicacion[1]);
+				var marker = new google.maps.Marker({
+					position: place, 
+					map: map 
+				});
+			}
+
 		});
     }
   });
