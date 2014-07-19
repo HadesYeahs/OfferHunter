@@ -1,6 +1,5 @@
 define([
   'jquery',
-  'jqueryMobile',
   'lodash',
   'backbone',
   'bootstrap',

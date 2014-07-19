@@ -17,8 +17,7 @@ define([
 				var url = 'http://michellhdz.com/offerhunter/laravel/public/index.php/oferta'
 			else
 				var url = 'http://michellhdz.com/offerhunter/laravel/public/index.php/ofertacliente/'+id
-				
-			debugger;
+
 
 			$.ajax({
 				url: url,
@@ -27,7 +26,7 @@ define([
 				complete: function(objeto, exito){
 					alert("Me acabo de completar")
 					if(exito=="success"){
-						alert("Y con Ã©xito");
+						alert("Y con éxito");
 					}
 				},
 				success: function (res) {
@@ -50,8 +49,8 @@ define([
 					}
 				},
 				error: function(objeto, quepaso, otroobj){
-					alert("Estas viendo esto por que fallÃ©");
-					alert("PasÃ³ lo siguiente: "+quepaso);
+					alert("Estas viendo esto por que fallé");
+					alert("Pasó lo siguiente: "+quepaso);
 				}*/
 			}).then(function(res){
 				var ofertas = res.data;

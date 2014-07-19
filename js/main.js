@@ -4,7 +4,6 @@ require.config({
   paths: {
     // Major libraries
     jquery: 'libs/jquery/jquery-min',
-    jqueryMobile: 'libs/jquery/jquery.mobile-1.4.3.min',
     underscore: 'libs/underscore/underscore-min', // https://github.com/amdjs
     lodash: 'libs/lodash/lodash', // alternative to underscore
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
@@ -41,14 +40,6 @@ require([
   'router',
   'vm'
 ], function(AppView, Router, Vm){
-	// Prevents all anchor click handling
-        $.mobile.linkBindingEnabled = false;
-
-        // Disabling this will prevent jQuery Mobile from handling hash changes
-        $.mobile.hashListeningEnabled = false;
-
-        // Instantiates a new Backbone.js Mobile Router
-        this.router = new Mobile();
   var appView = Vm.create({}, 'AppView', AppView);
   appView.render();
   Router.initialize({appView: appView});  // The router now has a copy of all main appview
