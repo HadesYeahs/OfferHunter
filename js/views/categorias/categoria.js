@@ -70,6 +70,7 @@ define([
 					$(".clienteId_"+cliente.id).find(".cliImg").css("background-image", "url("+url+")");  
 				}
 		});
+		$(".navbar-collapse").removeClass("in");
     }
   });
   return CategoriasPage;

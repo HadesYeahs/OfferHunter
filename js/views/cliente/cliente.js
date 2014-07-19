@@ -106,10 +106,20 @@ define([
 			$(".comp").click(function() {
 				window.plugins.socialsharing.share('Compartido desde OfferHunter', null, 'http://michellhdz.com/offerhunter/laravel/app/uploads/oferimg/bft3dcf.walmart18oct.jpg', 'http://offerhunter.com.mx')
 			});
+			//favorito
+			$(".fav").click(function() {
+				var value = localStorage.getItem('fav');
+				if(value == null)
+					value = cliente.id;
+				else
+					value = value+"|"+cliente.id;
+
+				localStorage.setItem('fav',value);
+			});
 			//ofertas	
-			/*$(".ofertas").click(function() {
-				window.location.href="#/ofertas/"+idoferta;
-			});*/
+			$(".ofertas").click(function() {
+				window.location.href="#/inicio/"+cliente.id;
+			});
 			//led
 			if(switchh)
 				$(".switch").css("color","#58DA90");
@@ -132,6 +142,7 @@ define([
 			}
 
 		});
+		$(".navbar-collapse").removeClass("in");
     }
   });
   return ClientePage;

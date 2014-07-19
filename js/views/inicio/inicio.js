@@ -12,10 +12,16 @@ define([
 		selff = this;
 		selff.template =  _.template($(inicioPageTemplate).filter('#offerIniTemplate').html());
     },
-    render: function () {
-		
+    render: function (id) {
+			if(id == "")
+				var url = 'http://michellhdz.com/offerhunter/laravel/public/index.php/oferta'
+			else
+				var url = 'http://michellhdz.com/offerhunter/laravel/public/index.php/ofertacliente/'+id
+				
+			debugger;
+
 			$.ajax({
-				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/oferta',
+				url: url,
 				dataType: 'jsonp',
 				data: ""/*,
 				complete: function(objeto, exito){

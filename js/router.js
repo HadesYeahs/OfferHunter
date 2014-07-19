@@ -11,11 +11,12 @@ define([
 		routes: {
 			// Pages
 			'inicio': 'inicio',
-			'ofertas': 'ofertas',
 			'ofertas/:id': 'ofertas',
 			'categorias': 'categorias',
 			'cliente/:id': 'cliente',
 			'categoria/:id': 'categoria',
+			'favoritos':'favoritos',
+			'inicio/:id':'inicio',
 			// Default - catch all
 			//'*actions': 'defaultAction'
 			'*actions': 'inicio'
@@ -33,10 +34,10 @@ define([
 			});
 		});
 		//MIS ROUTERS
-		router.on('route:inicio', function() {
+		router.on('route:inicio', function(id) {
 			require(['views/inicio/inicio'], function(InicioPage) {
 				var inicioPage = Vm.create(appView, 'InicioPage', InicioPage);
-				inicioPage.render();
+				inicioPage.render(id);
 			});
 		});
 		router.on('route:ofertas', function(id) {
@@ -61,6 +62,12 @@ define([
 			require(['views/cliente/cliente'], function(ClientePage) {
 				var clientePage = Vm.create(appView, 'ClientePage', ClientePage);
 				clientePage.render(id);
+			});
+		});
+		router.on('route:favoritos', function() {
+			require(['views/favoritos/favoritos'], function(FavoritosPage) {
+				var favoritosPage = Vm.create(appView, 'FavoritosPage', FavoritosPage);
+				favoritosPage.render();
 			});
 		});
 		////

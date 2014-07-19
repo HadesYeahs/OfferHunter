@@ -1,5 +1,6 @@
 define([
   'jquery',
+  'jqueryMobile',
   'lodash',
   'backbone',
   'bootstrap',
@@ -104,6 +105,7 @@ define([
 				$("#flipRoot").css("height"," 80%;");
 			});
 		});
+		$(".navbar-collapse").removeClass("in");
     }
   });
   return OfertaPage;
