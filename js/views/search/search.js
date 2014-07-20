@@ -14,9 +14,8 @@ define([
     },
     render: function (id) {
 		selff.$el.empty();
-		var value = localStorage.getItem('fav');
 		$.ajax({
-				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/cliente/f/'+value,
+				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/search/'+id,
 				dataType: 'jsonp',
 				data: ""/*,
 				complete: function(objeto, exito){
