@@ -17,6 +17,7 @@ define([
 			'categoria/:id': 'categoria',
 			'favoritos':'favoritos',
 			'inicio/:id':'inicio',
+			'search/:id':'search',
 			// Default - catch all
 			//'*actions': 'defaultAction'
 			'*actions': 'inicio'
@@ -68,6 +69,12 @@ define([
 			require(['views/favoritos/favoritos'], function(FavoritosPage) {
 				var favoritosPage = Vm.create(appView, 'FavoritosPage', FavoritosPage);
 				favoritosPage.render();
+			});
+		});
+		router.on('route:search', function(id) {
+			require(['views/search/search'], function(SearchPage) {
+				var searchPage = Vm.create(appView, 'SearchPage', SearchPage);
+				searchPage.render(id);
 			});
 		});
 		////
