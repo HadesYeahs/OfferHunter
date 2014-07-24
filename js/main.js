@@ -9,12 +9,16 @@ require.config({
 		}
 	},
     jqueryFlip: {
-      deps: ['jquery']
-    }
+      deps: ['jquerymobile']
+    },
+	jquerymobile: {
+		deps: ['jquery']
+	}
   },
   paths: {
     // Major libraries
     jquery: 'libs/jquery/jquery-min',
+	jquerymobile: 'libs/jquery/jquery.mobile.custom.min',
     underscore: 'libs/underscore/underscore-min', // https://github.com/amdjs
     lodash: 'libs/lodash/lodash', // alternative to underscore
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
