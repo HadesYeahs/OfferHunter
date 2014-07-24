@@ -9,6 +9,7 @@ require.config({
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     sinon: 'libs/sinon/sinon.js',
     bootstrap: 'libs/bootstrap/bootstrap',
+	share: 'libs/share/SocialSharing',
     jqueryFlip: 'libs/jquery/jquery.mobile.flip',
 
     // Require.js plugins
@@ -20,14 +21,13 @@ require.config({
   },
   shim: {
         'bootstrap': {
-            // jQueryに依存するのでpathsで設定した"module/name"を指定します。
-            deps: ['underscore', "jquery"]
+            deps: ['underscore', 'jquery']
         },
 		'jqueryFlip': {
 			deps: ['jquery']
 		},
 		'backbone': {
-                  "deps": [ "underscore", "jquery" ]
+            deps: [ 'underscore', 'jquery' ]
         }
     }
 

@@ -14,6 +14,7 @@ define([
     },
     render: function (id) {
 		selff.$el.empty();
+		selff.$el.css("background-image", ""); 
 		$.ajax({
 				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/search/'+id,
 				dataType: 'jsonp',

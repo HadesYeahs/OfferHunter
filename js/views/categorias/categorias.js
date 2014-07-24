@@ -13,6 +13,8 @@ define([
 		selff.template =  _.template($(categoriasPageTemplate).filter('#categorias').html());
     },
     render: function () {
+	$('.navbar-brand').html('Categorías');
+	selff.$el.css("background-image", ""); 
 		$.ajax({
 				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/tipos',
 				dataType: 'jsonp',

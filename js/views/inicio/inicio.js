@@ -13,6 +13,9 @@ define([
 		selff.template =  _.template($(inicioPageTemplate).filter('#offerIniTemplate').html());
     },
     render: function (id) {
+			selff.$el.removeClass("pageerror");
+			selff.$el.css("background-image", ""); 
+			$('.navbar-brand').html("Offer Hunter");
 			if(id == "")
 				var url = 'http://michellhdz.com/offerhunter/laravel/public/index.php/oferta'
 			else

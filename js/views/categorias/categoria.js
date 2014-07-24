@@ -48,7 +48,14 @@ define([
 					alert("Pas? lo siguiente: "+quepaso);
 				}*/
 			}).then(function(res){
+			if(res.data.length == 0)
+			{
+				var url= "./images/trabajando.png";
+				selff.$el.addClass("pageerror");
+				selff.$el.css("background-image", "url("+url+")");  
+			}
 				var clientes = res.data;
+				$('.navbar-brand').html(res.tipo);
 				selff.$el.empty();
 				for(var key in clientes)
 				{

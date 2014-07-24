@@ -13,6 +13,8 @@ define([
 		selff.template =  _.template($(categoriaPageTemplate).filter('#cliente').html());
     },
     render: function () {
+		$('.navbar-brand').html('Favoritos');
+		selff.$el.css("background-image", ""); 
 		selff.$el.empty();
 		var value = localStorage.getItem('fav');
 		$.ajax({
