@@ -3,9 +3,9 @@ define([
   'lodash',
   'backbone',
   'bootstrap',
-  'jqueryFlip',
+  'share',
   'text!templates/cliente/cliente.html'
-], function($, _, Backbone, Bootstrap,jqueryFlip,clientePageTemplate){
+], function($, _, Backbone, Bootstrap,share,clientePageTemplate){
   var ClientePage = Backbone.View.extend({
     el: '.page',
 	initialize: function () {
@@ -14,6 +14,7 @@ define([
     },
     render: function (id) {
 		selff.$el.empty();
+		selff.$el.css("background-image", ""); 
 		$.ajax({
 				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/cliente/'+id,
 				dataType: 'jsonp',
@@ -49,6 +50,7 @@ define([
 				}*/
 		}).then(function(res){
 			var cliente = res.data;
+			$('.navbar-brand').html(cliente.nomtipo);
 			var horario = cliente.horario_apert +" a "+ cliente.horario_cierre;
 			//actual
 			var horaactual = new Date().getHours();		 
@@ -92,13 +94,17 @@ define([
 						esloganCli:cliente.eslogan,
 						horarioCli:horario,
 						resenaCli:cliente.resena,
-						dirCli:direcciones
+						dirCli:direcciones,
+						mailCli:cliente.mail,
+						cliTel:cliente.telefono
 					})
 			);
 			//logo
 			var url= "http://michellhdz.com/offerhunter/laravel/app/uploads/clilogo/"+cliente.logo;
 			$(".logo").css("background-image", "url("+url+")"); 
 			//llamadas
+			var url= "./images/contacto.png";
+			$("#imagephone").css("background-image", "url("+url+")");
 			$(".contacto").click(function() {
 				window.location.href="tel://"+cliente.telefono;
 			});
@@ -106,22 +112,49 @@ define([
 			$(".comp").click(function() {
 				window.plugins.socialsharing.share('Compartido desde OfferHunter', null, 'http://michellhdz.com/offerhunter/laravel/app/uploads/oferimg/bft3dcf.walmart18oct.jpg', 'http://offerhunter.com.mx')
 			});
+			//favorito
+			$(".fav").click(function() {
+				var value = localStorage.getItem('fav');
+				if(value == null)
+					value = cliente.id;
+				else
+					value = value+"|"+cliente.id;
+
+				localStorage.setItem('fav',value);
+				alert("Se ah agregado a favoritos")
+			});
 			//ofertas	
-			/*$(".ofertas").click(function() {
-				window.location.href="#/ofertas/"+idoferta;
-			});*/
+			var url= "./images/ofertas.png";
+			$(".ofertas").css("background-image", "url("+url+")"); 
+			$(".ofertas").click(function() {
+				window.location.href="#/inicio/"+cliente.id;
+			});
 			//led
 			if(switchh)
 				$(".switch").css("color","#58DA90");
+			else
+				$(".switch").css("color","#E02228");
+				
 			//mapas
 			
+			if(ubicaciones.length == 1)
+			{
+				ubicacion = ubicaciones[0].split(',');
+				var center = new google.maps.LatLng(ubicacion[0], ubicacion[1]);
+				var zoom = 15;
+				
+			}
+			else
+			{
+				var center =  new google.maps.LatLng(22.216035, -97.857869);
+				var zoom =  11;
+			}
 			var mapOptions = {
-			  center: new google.maps.LatLng(22.216035, -97.857869),
-			  zoom: 10,
+			  center: center,
+			  zoom: zoom,
 			  mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 			var map = new google.maps.Map($("#mapa")[0],mapOptions);
-
 			for(var key in ubicaciones) {
 				ubicacion = ubicaciones[key].split(',');
 				var place = new google.maps.LatLng(ubicacion[0],ubicacion[1]);
@@ -130,8 +163,13 @@ define([
 					map: map 
 				});
 			}
+			google.maps.event.addListener(map, 'click', function(event) {
+			
+				
+			});
 
 		});
+		$(".navbar-collapse").removeClass("in");
     }
   });
   return ClientePage;

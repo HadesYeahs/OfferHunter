@@ -12,14 +12,23 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
   
-   <!--<script type="text/javascript" src="cordova.js"></script>
-   <script type="text/javascript" src="js/cordovaEvents.js"></script>-->
+   <script type="text/javascript" src="cordova.js"></script>
+   <script type="text/javascript" src="js/cordovaEvents.js"></script>
    
   <script data-main="js/main" src="js/libs/require/require.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
 </head>
 <body>
   <div class="see container_16"></div>
-  
+<script>
+  function loadScript() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp?sensor=FALSE&callback=initialize";
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+</script>
 </body>
 </html>

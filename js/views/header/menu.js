@@ -12,6 +12,10 @@ define([
     render: function () {
       $(this.el).html(headerMenuTemplate);
       $('a[href="' + window.location.hash + '"]').addClass('active');
+	  $('.navbar-form').submit(function( event ) {
+		var seach = $('.form-control').val();
+		window.location.href="#/search/"+seach;
+	  });
     },
     events: {
       'click a': 'highlightMenuItem'

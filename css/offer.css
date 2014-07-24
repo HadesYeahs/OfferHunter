@@ -26,6 +26,7 @@
 	box-shadow: 0px 0px 10px 10px rgba(36, 35, 44, 0.75);
 	-moz-box-shadow: 0px 0px 10px 10px rgba(36, 35, 44, 0.75);
 	-webkit-box-shadow: 0px 0px 10px 10px rgba(36, 35, 44, 0.75);
+	background-color: #2c2a35;
 }
 body{
 
@@ -99,8 +100,8 @@ html, body {
 .circleCat{
 	width: 77%;
 	height: 72%;
-	background-color: red;
-	border: solid 3px white;
+	/* background-color: red; */
+	/* border: solid 3px white; */
 	border-radius: 65%;
 	margin: 0 auto;
 	background-position: center;
@@ -125,13 +126,14 @@ html, body {
 	word-wrap: break-word;
 	///////////////////////////////////////////////////
     bottom: 0; 
-    font-size: 100%; 
+    font-size: 78%; 
     left: 0; 
     padding: 0 0 0px 2%; 
     text-decoration: none; 
-    width: 95%;
+    width: 100%;
     text-align: center;
 	color: white;
+	font-weight: bold;
 }
 .transform
 {
@@ -175,6 +177,17 @@ html, body {
 	background-position: center;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
+	
+	width: 25%;
+	height: 80%;
+	border: solid 3px white;
+	border-radius: 65%;
+	margin: 0 auto;
+	margin-left: 3%;
+	float: left;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
 }
 .nombreCli{
 	color: white;
@@ -182,7 +195,7 @@ html, body {
 	height: 40%;
 	left: 0;
 	padding: 0 0 0px 2%;
-	width: 63%;
+	width: 70%;
 	font-size: 23px;
 	font-weight: bold;
 	padding-top: 3%;
@@ -193,7 +206,7 @@ html, body {
 	height: 40%;
 	left: 0;
 	padding: 0 0 0px 2%;
-	width: 63%;
+	width: 70%;
 	font-size: 16px;
 
 }
@@ -240,11 +253,36 @@ html, body {
 }
 .ofertas{
 	float: left;
-	background-color: #DE2523;
+	background-color: #E02228;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
 }
 .contacto{
 	float: right;
 	background-color: #153244;
+}
+#imagephone{
+	height: 59%;
+	width: 35%;
+	float: left;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+}
+#mailphone{
+	color: white;
+	font-weight: bold;
+	font-size: 78%;
+	float: left;
+}
+#phonephone{
+	color: white;
+	font-weight: bold;
+	font-size: 78%;
+	float: right;
+	padding-right: 6%;
+	margin-top: 20%;
 }
 .doble{
 	margin: 0 auto;
@@ -348,7 +386,7 @@ html, body {
 .cliImg{
 	width: 25%;
 	height: 100%;
-	background-color: red;
+	background-color: #E02228;
 	border: solid 3px white;
 	border-radius:100%;
 	margin: 0 auto;
@@ -377,7 +415,7 @@ html, body {
 	position: relative;
 	overflow: hidden;
 	background-image: initial;
-	height: 100%;
+	height: 80%;
 	margin-bottom: 3%;
 	background-color: aliceblue;
 	background-position: center;
@@ -399,15 +437,32 @@ html, body {
 	float: right;
 	color: white;
 	height: 100%;
-	width: 32%;
+	width: 35%;
 	font-size: 14px;
+	padding-top: 2%;
 }
 .page{
 	height: 100%;
 	width: 100%;
 	position: absolute;
 }
+.pageerror{
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+}
 .flipContainer
 {
 	margin-bottom: 2%;
+}
+.spin{
+	width: 100%;
+	height: 100%;
+	color: white;
+	font-size: 200px;
+	text-align: center;
+	position: fixed;
+}
+.segundo{
+	display: none;
 }

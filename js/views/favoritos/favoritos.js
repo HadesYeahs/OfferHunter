@@ -4,18 +4,21 @@ define([
   'backbone',
   'bootstrap',
   'jqueryFlip',
-  'text!templates/categoria/categoria.html'
+  'text!templates/favoritos/favoritos.html'
 ], function($, _, Backbone,Bootstrap,jqueryFlip, categoriaPageTemplate){
   var CategoriasPage = Backbone.View.extend({
     el: '.page',
 	initialize: function () {
 		selff = this;
-		
 		selff.template =  _.template($(categoriaPageTemplate).filter('#cliente').html());
     },
-    render: function (id) {
+    render: function () {
+		$('.navbar-brand').html('Favoritos');
+		selff.$el.css("background-image", ""); 
+		selff.$el.empty();
+		var value = localStorage.getItem('fav');
 		$.ajax({
-				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/cliente/t/'+id,
+				url: 'http://michellhdz.com/offerhunter/laravel/public/index.php/cliente/f/'+value,
 				dataType: 'jsonp',
 				data: ""/*,
 				complete: function(objeto, exito){
@@ -48,14 +51,7 @@ define([
 					alert("Pas? lo siguiente: "+quepaso);
 				}*/
 			}).then(function(res){
-			if(res.data.length == 0)
-			{
-				var url= "./images/trabajando.png";
-				selff.$el.addClass("pageerror");
-				selff.$el.css("background-image", "url("+url+")");  
-			}
 				var clientes = res.data;
-				$('.navbar-brand').html(res.tipo);
 				selff.$el.empty();
 				for(var key in clientes)
 				{
