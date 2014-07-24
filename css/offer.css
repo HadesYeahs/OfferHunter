@@ -215,7 +215,7 @@ html, body {
 	position: relative; 
 	overflow: hidden; 
 	background-color: #A2A1A8;
-	height: 5%;
+	height: 6%;
 }
 #centrador{
 	margin: 0 auto;
@@ -424,21 +424,22 @@ html, body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 }
-.fav , .comp{
+.fav , .comp, .backCli{
 	position: relative;
 	float: left;
 	height: 100%;
-	width: 11%;
-	font-size: 23px;
+	width: 15%;
+	font-size: 30px;
 	color: #DD5555;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .horario{
 	position: relative;
 	float: right;
 	color: white;
 	height: 100%;
-	width: 35%;
-	font-size: 14px;
+	width: 40%;
+	font-size: 16px;
 	padding-top: 2%;
 }
 .page{

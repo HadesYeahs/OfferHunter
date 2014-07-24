@@ -130,6 +130,10 @@ define([
 				Imgcom = Imgcom.replace('url(','').replace(')','');
 				window.plugins.socialsharing.share('Compartido desde OfferHunter', null, Imgcom, 'http://offerhunter.com.mx')
 			});
+			$(".backCli").click(function() {
+				var idCliente = oferta.id_cliente;
+				window.location.href="#/cliente/"+idCliente;
+			});
 			/*$(document).ready(function() {
 				$("#flipRoot").flip();
 				$("#flipRoot").css("height"," 80%;");
